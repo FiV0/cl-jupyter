@@ -35,7 +35,7 @@
         ((endp (cdr l)) l)
         (t (cons (car l) (cons e (join e (cdr l)))))))
 
-(example (join 1 '(a b c d e)) 
+(example (join 1 '(a b c d e))
          => '(a 1 b 1 c 1 d 1 e))
 
 (defun concat-all (kind term ls)
@@ -45,7 +45,7 @@
 
 (example (concat-all 'string "" '("a" "b" "c" "d" "e"))
          => "abcde")
-  
+
 (defun banner ()
   (concat-all
    'string ""
@@ -103,7 +103,7 @@
         (let ((config
                (make-instance 'kernel-config
                               :transport (afetch "transport" config-alist :test #'equal)
-                              :ip (afetch "ip" config-alist :test #'equal)
+                              :ip "0.0.0.0"  ;(afetch "ip" config-alist :test #'equal)
                               :shell-port (afetch "shell_port" config-alist :test #'equal)
                               :iopub-port (afetch "iopub_port" config-alist :test #'equal)
                               :control-port (afetch "control_port" config-alist :test #'equal)
